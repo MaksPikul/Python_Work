@@ -1,0 +1,40 @@
+'''
+
+file i/o - prints exercise onto file
+libraires - qtpy5, sys, re
+regular expressions - checks details entered
+
+gym activity planner
+
+use pyqt5
+cover basics of it, plus graph to show volume per day
+kg x reps x sets
+
+options:
+add excercise, more than 7 prompts warning window.
+update excercise.
+delete excercise, confirmation window before delete.
+view list file, 0 excercises will prompt missing exercise and prevent open.
+
+
+functions:
+enter exercise, weight, rep x sets and day
+saves in a list, dictionary or file which is read and appended or written
+
+'''
+
+  '''
+    load file - file not found
+    new file - enter file name
+    ?delete file?
+
+    then
+
+    new exercise
+    update exercise
+    delete exercise
+    view exercises
+    save file
+
+    loops to load file
+    '''
