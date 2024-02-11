@@ -1,8 +1,8 @@
-Function I have created for the class (explanation of how they work in code file through comments):
-  Count() - Counts the number of a certain string saved in tree
-  Max() - Finds the largest string in alphabetical order
-  Pred(String arg) - Finds the largest string which is smaller than a given input String
-  Remove(String arg) - Removes input string from the tree
+- Function I have created for the class (explanation of how they work in code file through comments):
+  - Count() - Counts the number of a certain string saved in tree
+  - Max() - Finds the largest string in alphabetical order
+  - Pred(String arg) - Finds the largest string which is smaller than a given input String
+  - Remove(String arg) - Removes input string from the tree
 <br>
 
 From the full testing script, The functions recieved 93.5 out of 100 marks. 
