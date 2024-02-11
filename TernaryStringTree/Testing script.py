@@ -1,3 +1,4 @@
+
 ## Testing script ##
 ####################
 
@@ -5,7 +6,10 @@
 ## BUT then the solution needs to be in file stringtree.py in plain text
 import import_ipynb
 
-import os,import_ipynb,importlib,signal
+import os,import_ipynb,importlib
+
+# this may throw erros on Windows
+# import signal
 
 ######################################################################
 # initialisations 
@@ -40,18 +44,16 @@ nameST = "test"
 # helper function for converting test results into string
 ######################################################################
     
-def timeoutHandler(s,f):
-    raise Exception("timeout")
+# def timeoutHandler(s,f):
+#     raise Exception("timeout")
 
-signal.signal(signal.SIGALRM, timeoutHandler)
-timeout = 2
+# signal.signal(signal.SIGALRM, timeoutHandler)
+# timeout = 2
 
+# stripped-down version for Windows signal problems
 def tryWithTimeout(thunk):
     (res,error) = (None,"")
-    signal.alarm(timeout)
-    try: res = thunk()
-    except BaseException as e: error = exceptionError + str(e)
-    signal.alarm(0)
+    res = thunk()
     return (res,error)
 
 def runTests(tests):
@@ -71,7 +73,6 @@ def runTests(tests):
         res += "\n"
         total += grade
     (awarded, total) = (round(awarded,2), round(total,2))
-    # res += "\nTotal testing marks [57]: "+str(awarded)
     return (awarded,total,res)
 
 ######################################################################
@@ -564,14 +565,12 @@ def testStringTreeFull(sid):
 # import student code
 
 flag = ""
-signal.alarm(timeout)    
 try:
     mod = importlib.import_module(module.split(".")[0])
     StringTree = mod.StringTree
     STNode = mod.STNode
 except Exception as err: 
     flag = "IMPORT: "+str(err)
-signal.alarm(0)
     
 if flag != "":
     s = "\nTotal testing marks [80]: 0\nError: "+flag
