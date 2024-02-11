@@ -47,8 +47,8 @@ Testing ...
 [22]: test [remove 30].............success, awarded: 1
 <br>
 
--> count : 5.0 [5]
--> max : 7 [7]
--> pred : 8.6 [11]
--> remove: 7.0 [7]
--> *Total: 27.6 [30]
+- -> count : 5.0 [5]
+- -> max : 7 [7]
+- -> pred : 8.6 [11]
+- -> remove: 7.0 [7]
+- -> *Total: 27.6 [30]
