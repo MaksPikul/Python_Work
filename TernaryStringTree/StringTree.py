@@ -67,10 +67,16 @@ class StringTree:
     def pred(self, st): 
         if st == "" or self.root == None:
             return None
+
+                                # finds the node containing the first character of string st, or the parent node of where it should be
         firstNode = prev = ptr  = self.root.bin_search(st[0])
-        pred = firstNode.left
+        pred = firstNode.left # assigns the left subtree as the predecessor incase string "st" is the left most link in the tree
         i = 0
 
+        # begins to search for string in tree, as it travels down the nodes, it changes the predecessor depending on how we travel to find string "st"
+        # predecessor will always be on the left of "st"
+        # if ptr pointer goes right, we save the mid pointer as predeccessor before going right,
+        # if ptr needs to go down midde and has a left pointer towards a node instead of None, left node is saved as predecessor
         while ptr and i < len(st):
             prev = ptr
             if st[i] < ptr.data:
@@ -86,7 +92,11 @@ class StringTree:
                 prev = ptr
                 ptr = ptr.mid
         
-        
+        # once "st" is found,
+        # pred can be either assigned or not
+
+        # in the case that it is not assigned, we check:
+        # if first node is root, or if "st" is in the right subtree, hence it will need to to main tree, and assign predeccessor as the largest of left sub tree
         if pred == None:
             if firstNode == self.root:
                 return None
@@ -95,7 +105,9 @@ class StringTree:
                     pred = firstNode.parent.mid
                 else:
                     pred = firstNode.parent
-        
+
+
+        # once predeccessor is assigned, we either return the string from pred node, or find the largest string in the subtree with pred being the node
         if pred:
              
             if pred.mult >= 1:
